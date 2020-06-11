@@ -1,0 +1,53 @@
+<mat-toolbar color="primary">
+<button mat-button routerLink="/welcome" routerLinkActive="active">Welcome</button>
+   <button mat-button routerLink="/user-list" routerLinkActive="active">Students List</button>
+   <button mat-button routerLink="/feedback" routerLinkActive="active">Feedback Questions</button>
+   <button mat-button routerLink="/feedbackform" routerLinkActive="active">Add more Questions</button>
+   <button mat-button routerLink="/user-form" routerLinkActive="active">Register Student</button>
+  <button mat-button routerLink="/resultuser" routerLinkActive="active">Feedback Results</button>
+</mat-toolbar>
+<div class="card my-5">
+<div class="card-body">
+<form (ngSubmit)="onSubmit()" #userForm="ngForm">
+<div class="form-group">
+<label for="name">Student ID</label>
+<input type="text" [(ngModel)]="user.id" class="form-control" id="id" name="id"> 
+</div>
+<div class="form-group">
+<label for="name">Student Name</label>
+<input type="text" [(ngModel)]="user.name"
+class="form-control"
+id="name"
+name="name"
+placeholder="Enter your name"
+required #name="ngModel">
+</div>
+<div [hidden]="!name.pristine" class="alert alert-danger">Name is
+required</div>
+<div class="form-group">
+<label for="email">Student Email</label>
+<input type="text" [(ngModel)]="user.email"
+class="form-control"
+id="email"
+name="email"
+placeholder="Enter your email address"
+required #email="ngModel">
+<div [hidden]="!email.pristine" class="alert alert-danger">Email is
+required</div>
+</div>
+<div class="form-group">
+<label for="password">Password</label>
+<input type="text" [(ngModel)]="user.password"
+class="form-control"
+id="password"
+name="password"
+placeholder="Enter your Password"
+required #password="ngModel">
+<div [hidden]="!email.pristine" class="alert alert-danger">Password is
+required</div>
+</div>
+<button type="submit" [disabled]="!userForm.form.valid"
+class="btn btn-info">Submit</button>
+</form>
+</div>
+</div>

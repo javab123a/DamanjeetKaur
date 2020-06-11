@@ -1,0 +1,27 @@
+ <mat-toolbar color="primary">
+<button mat-button routerLink="/welcome" routerLinkActive="active">Welcome</button>
+   <button mat-button routerLink="/user-list" routerLinkActive="active">Students List</button>
+   <button mat-button routerLink="/feedback" routerLinkActive="active">Feedback Questions</button>
+   <button mat-button routerLink="/user-form" routerLinkActive="active">Student Register</button>
+  <button mat-button routerLink="/resultuser" routerLinkActive="active">Feedback Results</button>
+</mat-toolbar>
+<div class="card my-5">
+<div class="card-body">
+<table class="table table-bordered table-striped">
+<thead class="thead-dark">
+<tr>
+<th scope="col">Question No.</th>
+<th scope="col">Questions</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let admin of admins">
+<td>{{ admin.id }}</td>
+<td>{{ admin.questions}}</td>
+<td><button (click)="editUser(admin)"  class="btn btn-info"><i class="fa fa-futboll-0">Update</i></button></td>
+<td><button (click)="deleteUser(admin)" class="btn btn-info"><i class="fa fa-futboll-0">Delete</i></button></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>

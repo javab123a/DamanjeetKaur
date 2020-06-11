@@ -1,0 +1,33 @@
+ <mat-toolbar color="primary">
+<button mat-button routerLink="/welcome" routerLinkActive="active">Welcome</button>
+   <button mat-button routerLink="/user-list" routerLinkActive="active">Students List</button>
+   <button mat-button routerLink="/feedback" routerLinkActive="active">Feedback Questions</button>
+   <button mat-button routerLink="/feedbackform" routerLinkActive="active">Add more Questions</button>
+   <button mat-button routerLink="/user-form" routerLinkActive="active">Register Student</button>
+  <button mat-button routerLink="/resultuser" routerLinkActive="active">Feedback Results</button>
+</mat-toolbar>
+<div class="card my-5">
+<div class="card-body">
+<form (ngSubmit)="onSubmit()" #userForm="ngForm">
+<div class="form-group">
+<label for="Question">Question ID</label>
+<input type="text" [(ngModel)]="admin.id" class="form-control" id="id" name="id" readonly placeholder="Enter ID" required #name="ngModel">
+</div>
+<div [hidden]="!name.pristine" class="alert alert-danger">question is
+required</div>
+<div class="form-group">
+<label for="Question">Question</label>
+<input type="text" [(ngModel)]="admin.questions"
+class="form-control"
+id="questions"
+name="questions"
+placeholder="Enter question"
+required #name="ngModel">
+</div>
+<div [hidden]="!name.pristine" class="alert alert-danger">question is
+required</div>
+<button type="submit" [disabled]="!userForm.form.valid"
+class="btn btn-info">Submit</button>
+</form>
+</div>
+</div>

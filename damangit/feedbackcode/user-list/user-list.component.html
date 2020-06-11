@@ -1,0 +1,73 @@
+<mat-toolbar class="btn btn-info">
+<button mat-button class="btn btn-info" routerLink="/welcome" routerLinkActive="active">Welcome</button>
+   <button mat-button class="btn btn-info" routerLink="/user-list" routerLinkActive="active">Students List</button>
+   <button mat-button class="btn btn-info" routerLink="/user-form" routerLinkActive="active">Register Student</button>
+   <button mat-button class="btn btn-info" routerLink="/feedback" routerLinkActive="active">Feedback Questions</button>
+   <button mat-button class="btn btn-info" routerLink="/feedbackform" routerLinkActive="active">Add more Questions</button>
+  <button mat-button class="btn btn-info" routerLink="/resultuser" routerLinkActive="active">Feedback Results</button>
+  <button mat-button routerLink="/user-form" routerLinkActive="active">Register Student</button>
+</mat-toolbar>
+<div class="card my-5">
+<div class="card-body">
+<div class= "container">
+<table class="table table-bordered table-striped">
+<thead class="thead-dark">
+<tr>
+<th scope="col">#</th>
+<th scope="col">Name</th>
+<th scope="col">Email</th>
+<th scope="col">Technology</th>
+<th scope="col">Batch No.</th>
+<th scope="col">Update</th>
+<th scope="col">Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let user of users">
+<td>{{ user.id }}</td>
+<td>{{ user.name }}</td>
+<td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+<td>{{ user.technology}}</td>
+<td>{{ user.batch }}</td>
+<td><button (click)="editStudent(user)"  class="btn btn-info"><i class="fa fa-futboll-0">Update</i></button></td>
+<td><button (click)="deleteUser(user)" class="btn btn-info"><i class="fa fa-futboll-0">Delete</i></button></td>
+</tr>
+</tbody>
+</table>
+<div class="container">
+   <div>
+   <label for="selection">Selected Customer</label><br/><br/>
+   
+<input type="text" [(ngModel)]="selectedStudent.id"  class="form-control" id="id" name="id" readonly placeholder="Registration id"
+required #id="ngModel">
+       <label for="name">Student Name</label>
+<input type="text" [(ngModel)]="selectedStudent.name"
+class="form-control"
+id="name"
+name="name"
+placeholder="Student Name"
+required #name="ngModel">
+     <label for="email">Student Email</label>
+<input type="text" [(ngModel)]="selectedStudent.email" class="form-control" id="email" name="email"  placeholder="Student Email" required #email="ngModel">
+     <label for="technology">Student technology</label>
+<input type="text" [(ngModel)]="selectedStudent.technology"
+class="form-control"
+id="tech"
+name="tech"
+placeholder="Student Technology"
+required #tech="ngModel">
+ <label for="batch">Student Batch</label>
+<input type="text" [(ngModel)]="selectedStudent.batch"
+class="form-control"
+id="bach"
+name="bach"
+placeholder="Student Batch"
+required #tech="ngModel"><br/>
+<br/>
+     <button class="btn btn-primary" (click)="editselectedStudent()">Update</button> &nbsp; &nbsp;
+<button class="btn btn-primary" >Clear</button>
+   </div>
+</div>
+</div>
+</div>
+</div>
